@@ -5,6 +5,7 @@ services:
     plan: free
     buildCommand: ./bin/render-build.sh
     startCommand: bundle exec puma -C config/puma.rb
+    postdeploy: bundle exec rails db:migrate
     envVars:
       - key: RAILS_ENV
         value: production
@@ -15,7 +16,9 @@ services:
       - key: RAILS_SERVE_STATIC_FILES
         value: true
       - key: DATABASE_URL
-        fromDatabase: comminnity-db
+        fromDatabase:
+          name: comminnity-db
+          property: connectionString
       - key: SECRET_KEY_BASE
         generateValue: true
       - key: RAILS_MASTER_KEY
