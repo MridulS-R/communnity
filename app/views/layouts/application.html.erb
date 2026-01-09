@@ -29,12 +29,24 @@
         </div>
         <nav class="hidden md:flex items-center gap-6 text-sm"></nav>
         <div class="hidden md:flex items-center gap-3">
-          <a href="/signup" class="btn-brand text-sm">Get API Key</a>
+          <% if logged_in? %>
+            <span class="text-sm text-gray-600 hidden md:inline">Hi, <%= current_user.name %></span>
+            <%= button_to "Logout", logout_path, method: :delete, class: "btn-brand-outline text-sm" %>
+          <% else %>
+            <a href="/login" class="btn-brand text-sm">Login</a>
+            <a href="/signup" class="btn-brand-outline text-sm">Sign up</a>
+          <% end %>
         </div>
         <details class="md:hidden">
           <summary class="list-none cursor-pointer px-3 py-2 rounded border">Menu</summary>
           <div class="mt-2 bg-white border rounded p-3 flex flex-col gap-2 text-sm">
-            <a href="/signup" class="btn-brand text-sm text-center">Get API Key</a>
+            <% if logged_in? %>
+              <div class="text-sm text-gray-600">Hi, <%= current_user.name %></div>
+              <%= button_to "Logout", logout_path, method: :delete, class: "btn-brand-outline text-sm" %>
+            <% else %>
+              <a href="/login" class="btn-brand text-sm text-center">Login</a>
+              <a href="/signup" class="btn-brand-outline text-sm text-center">Sign up</a>
+            <% end %>
           </div>
         </details>
       </div>

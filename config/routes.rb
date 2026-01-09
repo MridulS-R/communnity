@@ -33,9 +33,12 @@ Rails.application.routes.draw do
   get "/privacy", to: "pages#privacy"
   get "/terms", to: "pages#terms"
 
-  # Auth (mock)
-  get "/signup", to: "pages#signup"
-  get "/login", to: "pages#login"
+  # Auth
+  get "/signup", to: "users#new"
+  post "/signup", to: "users#create"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   # Lead capture
   resources :leads, only: [:create]
