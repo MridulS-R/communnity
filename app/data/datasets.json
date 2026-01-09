@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "slug": "retail-services-delhi-ncr",
+    "name": "Retail & Services Listings — Delhi NCR",
+    "description": "Verified storefronts and services across Delhi NCR with geocodes.",
+    "industries": ["Retail", "Services"],
+    "geography": { "state": "Delhi", "city": "Delhi NCR" },
+    "recordCount": 125000,
+    "freshnessDaysMedian": 24,
+    "lastUpdated": "2025-12-15T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV", "Parquet"],
+    "fields": [
+      { "name": "business_name", "description": "Registered or storefront name", "example": "Sharma Electronics" },
+      { "name": "address", "description": "Street address", "example": "12/3 Karol Bagh" },
+      { "name": "city", "description": "City", "example": "New Delhi" },
+      { "name": "phone", "description": "Primary phone", "example": "+91-11-23456789" }
+    ],
+    "quality": { "duplicateRatePct": 0.9, "accuracySamplePct": 97.8 }
+  },
+  {
+    "id": 2,
+    "slug": "fnb-mumbai",
+    "name": "Food & Beverage — Mumbai",
+    "description": "Restaurants, cafes, bakeries — outlet-level data with hours.",
+    "industries": ["F&B"],
+    "geography": { "state": "Maharashtra", "city": "Mumbai" },
+    "recordCount": 89000,
+    "freshnessDaysMedian": 18,
+    "lastUpdated": "2025-12-10T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "business_name", "description": "Outlet name", "example": "Bombay Sandwich Co." },
+      { "name": "category", "description": "Cuisine/category", "example": "Cafe" }
+    ],
+    "quality": { "duplicateRatePct": 0.7, "accuracySamplePct": 98.2 }
+  },
+  {
+    "id": 3,
+    "slug": "pharmacies-bengaluru",
+    "name": "Pharmacies — Bengaluru",
+    "description": "Retail pharmacies with license metadata.",
+    "industries": ["Healthcare"],
+    "geography": { "state": "Karnataka", "city": "Bengaluru" },
+    "recordCount": 21000,
+    "freshnessDaysMedian": 30,
+    "lastUpdated": "2025-11-20T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV", "Parquet"],
+    "fields": [
+      { "name": "license_no", "description": "Drug license number", "example": "KA-XYZ-1234" }
+    ],
+    "quality": { "duplicateRatePct": 0.6, "accuracySamplePct": 97.0 }
+  },
+  {
+    "id": 4,
+    "slug": "warehouses-pune",
+    "name": "Warehouses & Fulfillment — Pune",
+    "description": "Warehouse locations with capacity banding.",
+    "industries": ["Logistics"],
+    "geography": { "state": "Maharashtra", "city": "Pune" },
+    "recordCount": 5400,
+    "freshnessDaysMedian": 42,
+    "lastUpdated": "2025-11-28T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "capacity_band", "description": "Approx capacity band", "example": "10k-25k sqft" }
+    ],
+    "quality": { "duplicateRatePct": 1.2, "accuracySamplePct": 96.5 }
+  },
+  {
+    "id": 5,
+    "slug": "salons-hyderabad",
+    "name": "Salons & Spas — Hyderabad",
+    "description": "Beauty and grooming service providers.",
+    "industries": ["Services"],
+    "geography": { "state": "Telangana", "city": "Hyderabad" },
+    "recordCount": 15000,
+    "freshnessDaysMedian": 27,
+    "lastUpdated": "2025-12-01T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "chain", "description": "Chain brand if applicable", "example": "Naturals" }
+    ],
+    "quality": { "duplicateRatePct": 0.8, "accuracySamplePct": 97.3 }
+  },
+  {
+    "id": 6,
+    "slug": "education-kolkata",
+    "name": "Education Institutes — Kolkata",
+    "description": "Schools, colleges, coaching centers.",
+    "industries": ["Education"],
+    "geography": { "state": "West Bengal", "city": "Kolkata" },
+    "recordCount": 22000,
+    "freshnessDaysMedian": 55,
+    "lastUpdated": "2025-11-10T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "level", "description": "Institute level", "example": "College" }
+    ],
+    "quality": { "duplicateRatePct": 1.5, "accuracySamplePct": 95.5 }
+  },
+  {
+    "id": 7,
+    "slug": "clinics-chennai",
+    "name": "Clinics — Chennai",
+    "description": "Clinics and diagnostic centers with specialties.",
+    "industries": ["Healthcare"],
+    "geography": { "state": "Tamil Nadu", "city": "Chennai" },
+    "recordCount": 18000,
+    "freshnessDaysMedian": 36,
+    "lastUpdated": "2025-11-30T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "specialty", "description": "Primary specialty", "example": "Dermatology" }
+    ],
+    "quality": { "duplicateRatePct": 0.9, "accuracySamplePct": 97.1 }
+  },
+  {
+    "id": 8,
+    "slug": "automotive-delhi",
+    "name": "Automotive Services — Delhi",
+    "description": "Garages, service centers, accessory shops.",
+    "industries": ["Automotive"],
+    "geography": { "state": "Delhi", "city": "New Delhi" },
+    "recordCount": 26000,
+    "freshnessDaysMedian": 31,
+    "lastUpdated": "2025-12-05T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "oem_authorized", "description": "OEM authorized service center", "example": "true" }
+    ],
+    "quality": { "duplicateRatePct": 1.0, "accuracySamplePct": 96.8 }
+  },
+  {
+    "id": 9,
+    "slug": "bank-branches-pan-india",
+    "name": "Bank Branches — PAN India",
+    "description": "Branches and ATMs with IFSC and status.",
+    "industries": ["Financial Services"],
+    "geography": { "state": "PAN", "city": "PAN" },
+    "recordCount": 115000,
+    "freshnessDaysMedian": 20,
+    "lastUpdated": "2025-12-18T00:00:00.000Z",
+    "updateFrequency": "weekly",
+    "formats": ["CSV", "Parquet"],
+    "fields": [
+      { "name": "ifsc", "description": "IFSC code", "example": "HDFC0000123" }
+    ],
+    "quality": { "duplicateRatePct": 0.4, "accuracySamplePct": 99.0 }
+  },
+  {
+    "id": 10,
+    "slug": "smb-pan-india",
+    "name": "SMB Listings — PAN India",
+    "description": "Small and medium business master list with deduped entities.",
+    "industries": ["Cross-Industry"],
+    "geography": { "state": "PAN", "city": "PAN" },
+    "recordCount": 2500000,
+    "freshnessDaysMedian": 65,
+    "lastUpdated": "2025-10-20T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "entity_id", "description": "Resolved entity ID", "example": "ENT-9f2a6c" }
+    ],
+    "quality": { "duplicateRatePct": 1.8, "accuracySamplePct": 95.0 }
+  },
+  {
+    "id": 11,
+    "slug": "manufacturing-gurgaon",
+    "name": "Manufacturing Units — Gurgaon",
+    "description": "Manufacturing units with industry codes.",
+    "industries": ["Manufacturing"],
+    "geography": { "state": "Haryana", "city": "Gurgaon" },
+    "recordCount": 9800,
+    "freshnessDaysMedian": 47,
+    "lastUpdated": "2025-11-15T00:00:00.000Z",
+    "updateFrequency": "monthly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "industry_code", "description": "Industry classification", "example": "C27" }
+    ],
+    "quality": { "duplicateRatePct": 1.1, "accuracySamplePct": 96.2 }
+  },
+  {
+    "id": 12,
+    "slug": "startups-bengaluru",
+    "name": "Startups — Bengaluru",
+    "description": "Startup companies with funding status and domain.",
+    "industries": ["Technology"],
+    "geography": { "state": "Karnataka", "city": "Bengaluru" },
+    "recordCount": 22000,
+    "freshnessDaysMedian": 22,
+    "lastUpdated": "2025-12-16T00:00:00.000Z",
+    "updateFrequency": "weekly",
+    "formats": ["CSV"],
+    "fields": [
+      { "name": "domain", "description": "Company website domain", "example": "example.in" }
+    ],
+    "quality": { "duplicateRatePct": 0.6, "accuracySamplePct": 98.5 }
+  }
+]
+

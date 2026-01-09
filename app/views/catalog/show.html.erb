@@ -1,0 +1,42 @@
+<% d = @dataset %>
+<a href="/catalog" class="link-brand">← Back to catalog</a>
+<h1 class="text-3xl font-bold mb-2"><%= d["name"] %></h1>
+<p class="text-gray-700 mb-4"><%= d["description"] %></p>
+
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="bg-white border rounded p-4">
+    <div class="text-sm text-gray-600">Industry: <%= d["industries"].join(", ") %></div>
+    <div class="text-sm text-gray-600">Geography: <%= d.dig("geography","state") %> / <%= d.dig("geography","city") %></div>
+    <div class="text-sm text-gray-600">Records: <%= d["recordCount"] %></div>
+    <div class="text-sm text-gray-600">Median freshness: <%= d["freshnessDaysMedian"] %> days</div>
+    <div class="text-sm text-gray-600">Last updated: <%= d["lastUpdated"] %></div>
+    <div class="text-sm text-gray-600">Formats: <%= d["formats"].join(", ") %></div>
+    <div class="text-sm text-gray-600">Update frequency: <%= d["updateFrequency"] %></div>
+  </div>
+  <div class="bg-white border rounded p-4 md:col-span-2">
+    <h3 class="font-semibold mb-2">Available fields</h3>
+    <table class="w-full text-sm">
+      <thead><tr class="text-left border-b"><th class="py-2">Field</th><th>Description</th><th>Example</th></tr></thead>
+      <tbody>
+      <% d["fields"].each do |f| %>
+        <tr class="border-b"><td class="py-2"><%= f["name"] %></td><td><%= f["description"] %></td><td class="text-gray-600"><%= f["example"] %></td></tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="bg-white border rounded p-4 mt-6">
+  <h3 class="font-semibold mb-2">Quality metrics</h3>
+  <div class="grid md:grid-cols-3 gap-4 text-sm">
+    <div>Duplicate rate: <%= d.dig("quality","duplicateRatePct") %>%</div>
+    <div>Accuracy sample: <%= d.dig("quality","accuracySamplePct") %>%</div>
+    <div>Methodology: <a class="text-blue-600" href="/quality">see details</a></div>
+  </div>
+</div>
+
+<div class="mt-6">
+  <a href="#lead" class="inline-block btn-brand">Request full sample</a>
+  <a href="/contact" class="inline-block ml-2 px-4 py-2 border rounded">Contact sales</a>
+  <a href="/pricing" class="inline-block ml-2 px-4 py-2 border rounded">Pricing</a>
+  </div>

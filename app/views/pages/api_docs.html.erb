@@ -1,0 +1,22 @@
+<h1 class="text-3xl font-bold mb-4">API Docs</h1>
+<div class="space-y-6">
+  <div class="bg-white border rounded p-4">
+    <h3 class="font-semibold mb-2">Getting started</h3>
+    <ol class="list-decimal list-inside text-sm text-gray-700">
+      <li>Sign up → <a class="link-brand" href="/signup">Get API Key</a></li>
+      <li>Authenticate via header: Authorization: Bearer KEY</li>
+      <li>Make first request to /v1/search</li>
+    </ol>
+  </div>
+  <div class="bg-white border rounded p-4">
+    <h3 class="font-semibold mb-2">Endpoints</h3>
+    <pre class="text-sm bg-gray-50 p-3 overflow-auto">POST /v1/enrich
+GET  /v1/search?q=...
+POST /v1/resolve</pre>
+  </div>
+  <div class="bg-white border rounded p-4">
+    <h3 class="font-semibold mb-2">Rate limits & auth</h3>
+    <p class="text-sm">Token-based. Use API key; default 10 RPS. Status page: /status</p>
+  </div>
+</div>
+<a href="/signup" class="inline-block mt-6 btn-brand">Get API Key</a>

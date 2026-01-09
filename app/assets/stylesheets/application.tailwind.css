@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-gray-50 text-gray-900; }
+}
+
+@layer components {
+  .btn-brand { @apply px-4 py-2 rounded bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-brand-outline { @apply px-4 py-2 rounded border border-brand-600 text-brand-600 hover:bg-brand-50; }
+  .link-brand { @apply text-brand-600 hover:underline; }
+}
+

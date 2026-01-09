@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Communnity — Verified Business Data for India</title>
+    <meta name="description" content="Communnity: Compliance-first B2B data for India — datasets, enrichment API, monitoring signals." />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
+    <header class="bg-white border-b sticky top-0 z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <a href="/" class="font-semibold text-xl">Communnity</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/products" class="hover:text-brand-600">Products</a>
+          <a href="/catalog" class="hover:text-brand-600">Catalog</a>
+          <a href="/solutions" class="hover:text-brand-600">Solutions</a>
+          <a href="/api" class="hover:text-brand-600">API</a>
+          <a href="/quality" class="hover:text-brand-600">Quality</a>
+          <a href="/pricing" class="hover:text-brand-600">Pricing</a>
+          <a href="/about" class="hover:text-brand-600">Company</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#lead" class="btn-brand-outline text-sm">Request Sample</a>
+          <a href="/signup" class="btn-brand text-sm">Get API Key</a>
+        </div>
+      </div>
+    </header>
+
+    <% if notice %>
+      <div class="bg-green-50 text-green-800 px-4 py-3 text-sm"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="bg-red-50 text-red-800 px-4 py-3 text-sm"><%= alert %></div>
+    <% end %>
+
+    <main class="flex-1">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer class="bg-white border-t">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid gap-6 md:grid-cols-3 text-sm">
+        <div>
+          <div class="font-semibold mb-2">Communnity</div>
+          <div>Address: Bengaluru, KA — 560001</div>
+        </div>
+        <div class="space-y-1">
+          <a class="block hover:text-blue-600" href="/privacy">Privacy</a>
+          <a class="block hover:text-blue-600" href="/terms">Terms</a>
+          <a class="block hover:text-blue-600" href="/compliance">Compliance</a>
+        </div>
+        <div class="space-y-2">
+          <a href="#lead" class="inline-block btn-brand">Book a Demo</a>
+          <a href="/contact" class="ml-2 inline-block px-3 py-2 rounded border border-gray-300 hover:bg-gray-50">Contact Sales</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
