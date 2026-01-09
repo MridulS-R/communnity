@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+
 class LeadWebhookJob < ApplicationJob
   queue_as :default
 
@@ -17,4 +20,3 @@ class LeadWebhookJob < ApplicationJob
     Rails.logger.error("LeadWebhookJob error: #{e.class}: #{e.message}")
   end
 end
-
