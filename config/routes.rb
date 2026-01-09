@@ -40,6 +40,13 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # Account management
+  get "/account", to: "users#edit"
+  patch "/account", to: "users#update"
+
+  # Password reset
+  resources :passwords, only: [:new, :create, :edit, :update]
+
   # Lead capture
   resources :leads, only: [:create]
 
