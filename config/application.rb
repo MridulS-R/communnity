@@ -12,6 +12,8 @@ module CommInnity
     # Use PostgreSQL in all environments; DATABASE_URL driven in production.
     config.generators.system_tests = nil
     config.time_zone = "Asia/Kolkata"
+
+    # Enable Rack::Attack for throttling
+    config.middleware.use Rack::Attack
   end
 end
-

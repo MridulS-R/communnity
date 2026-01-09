@@ -39,4 +39,18 @@ Rails.application.routes.draw do
 
   # Lead capture
   resources :leads, only: [:create]
+
+  # API v1
+  scope module: :api do
+    namespace :v1 do
+      get "/search", to: "search#index"
+      post "/enrich", to: "enrich#create"
+      post "/resolve", to: "resolve#create"
+    end
+  end
+
+  # Status and health
+  get "/status", to: "status#show"
+  get "/healthz", to: "status#health"
+  get "/sitemap.xml", to: "sitemaps#index", defaults: { format: :xml }
 end

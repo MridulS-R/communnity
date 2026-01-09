@@ -4,14 +4,19 @@ class LeadsController < ApplicationController
   def create
     lead = Lead.new(lead_params)
     if lead.save
+      LeadWebhookJob.perform_later(lead.id)
       respond_to do |format|
         format.html { redirect_back fallback_location: root_path, notice: "Thanks — we'll reach out shortly." }
         format.json { render json: { ok: true } }
       end
     else
+      errors = lead.errors.full_messages
       respond_to do |format|
-        format.html { redirect_back fallback_location: root_path, alert: lead.errors.full_messages.join(", ") }
-        format.json { render json: { ok: false, errors: lead.errors.full_messages }, status: :unprocessable_entity }
+        format.html {
+          flash[:lead_errors] = errors
+          redirect_back fallback_location: root_path
+        }
+        format.json { render json: { ok: false, errors: errors }, status: :unprocessable_entity }
       end
     end
   end
@@ -21,4 +26,3 @@ class LeadsController < ApplicationController
     params.require(:lead).permit(:name, :email, :company, :role, :use_case, :city, :industry, :interest_datasets, :interest_api, :consent)
   end
 end
-

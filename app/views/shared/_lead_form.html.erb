@@ -1,6 +1,16 @@
 <% label = (defined?(cta_label) && cta_label.present?) ? cta_label : "Request a Sample" %>
 <a id="lead"></a>
 <div class="bg-white border rounded p-6">
+  <% if flash[:lead_errors].present? %>
+    <div class="mb-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded p-3">
+      <div class="font-semibold">Please fix the following:</div>
+      <ul class="list-disc list-inside">
+        <% Array(flash[:lead_errors]).each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <h3 class="font-semibold text-xl mb-2">Get started</h3>
   <p class="text-sm text-gray-700 mb-4">Tell us about your use case. We’ll send a sample and set up a demo.</p>
   <%= form_with url: leads_path, method: :post do |f| %>
@@ -49,4 +59,3 @@
   <% end %>
   <p class="text-xs text-gray-500 mt-2">We respect DPDP and purpose limitation; unsubscribe anytime.</p>
 </div>
-

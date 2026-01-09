@@ -9,6 +9,7 @@ gem "puma", "~> 6.4"
 # View rendering
 gem "sprockets-rails", "~> 3.4"
 gem "tailwindcss-rails", "~> 2.6"
+gem "rack-attack", "~> 6.7"
 
 group :development do
   gem "web-console"
