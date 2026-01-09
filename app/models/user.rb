@@ -4,6 +4,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :name, presence: true
 
+  before_validation do
+    self.email = email.to_s.downcase.strip
+  end
+
   def generate_password_reset!
     update!(reset_password_token: SecureRandom.urlsafe_base64(32), reset_password_sent_at: Time.current)
   end

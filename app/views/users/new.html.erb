@@ -1,4 +1,17 @@
 <h1 class="text-3xl font-bold mb-4">Create your account</h1>
+<% if flash[:alert].present? %>
+  <div class="mb-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded p-3"><%= flash[:alert] %></div>
+<% end %>
+<% if @user && @user.errors.any? %>
+  <div class="mb-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded p-3">
+    <div class="font-semibold">Please fix the following:</div>
+    <ul class="list-disc list-inside">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_with model: @user, url: signup_path do |f| %>
   <div class="grid md:grid-cols-2 gap-4">
     <div>
@@ -31,4 +44,3 @@
     <a href="/login" class="ml-2 link-brand">Already have an account? Log in</a>
   </div>
 <% end %>
-

@@ -10,6 +10,7 @@ gem "puma", "~> 6.4"
 gem "sprockets-rails", "~> 3.4"
 gem "tailwindcss-rails", "~> 2.6"
 gem "bcrypt", "~> 3.1"
+gem "postmark-rails", "~> 0.22"
 gem "rack-attack", "~> 6.7"
 
 group :development do
