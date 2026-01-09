@@ -5,8 +5,7 @@ class PasswordsController < ApplicationController
     email = params[:email].to_s.downcase
     if (user = User.find_by(email: email))
       user.generate_password_reset!
-      # In a production-ready setup, send mail here via a mailer.
-      Rails.logger.info("Password reset link: #{edit_password_url(token: user.reset_password_token)}")
+      PasswordMailer.reset_email(user).deliver_later
     end
     redirect_to login_path, notice: "If that email exists, we have sent reset instructions."
   end
@@ -37,4 +36,3 @@ class PasswordsController < ApplicationController
     end
   end
 end
-

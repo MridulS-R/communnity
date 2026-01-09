@@ -40,6 +40,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    unless @user.authenticate(params[:user][:current_password].to_s)
+      redirect_to account_path, alert: "Current password is incorrect" and return
+    end
+    @user.destroy
+    reset_session
+    redirect_to root_path, notice: "Your account has been deleted"
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :company, :role, :password, :password_confirmation)

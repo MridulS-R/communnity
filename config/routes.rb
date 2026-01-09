@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   # Account management
   get "/account", to: "users#edit"
   patch "/account", to: "users#update"
+  delete "/account", to: "users#destroy"
 
   # Password reset
   resources :passwords, only: [:new, :create, :edit, :update]

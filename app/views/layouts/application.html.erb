@@ -30,6 +30,7 @@
         <nav class="hidden md:flex items-center gap-6 text-sm"></nav>
         <div class="hidden md:flex items-center gap-3">
           <% if logged_in? %>
+            <a href="/account" class="text-sm link-brand">My Account</a>
             <span class="text-sm text-gray-600 hidden md:inline">Hi, <%= current_user.name %></span>
             <%= button_to "Logout", logout_path, method: :delete, class: "btn-brand-outline text-sm" %>
           <% else %>
@@ -41,6 +42,7 @@
           <summary class="list-none cursor-pointer px-3 py-2 rounded border">Menu</summary>
           <div class="mt-2 bg-white border rounded p-3 flex flex-col gap-2 text-sm">
             <% if logged_in? %>
+              <a href="/account" class="link-brand">My Account</a>
               <div class="text-sm text-gray-600">Hi, <%= current_user.name %></div>
               <%= button_to "Logout", logout_path, method: :delete, class: "btn-brand-outline text-sm" %>
             <% else %>
