@@ -10,22 +10,40 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
-    <header class="bg-white border-b sticky top-0 z-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        <a href="/" class="font-semibold text-xl">Communnity</a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="/products" class="hover:text-brand-600">Products</a>
-          <a href="/catalog" class="hover:text-brand-600">Catalog</a>
-          <a href="/solutions" class="hover:text-brand-600">Solutions</a>
-          <a href="/api" class="hover:text-brand-600">API</a>
-          <a href="/quality" class="hover:text-brand-600">Quality</a>
-          <a href="/pricing" class="hover:text-brand-600">Pricing</a>
-          <a href="/about" class="hover:text-brand-600">Company</a>
-        </nav>
+    <header class="site-header">
+      <div class="site-header-inner">
         <div class="flex items-center gap-3">
+          <%= render "shared/brand_logo" %>
+          <a href="/" class="font-semibold text-xl tracking-tight">Communnity</a>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/products" class="nav-link">Products</a>
+          <a href="/catalog" class="nav-link">Catalog</a>
+          <a href="/solutions" class="nav-link">Solutions</a>
+          <a href="/api" class="nav-link">API</a>
+          <a href="/quality" class="nav-link">Quality</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/about" class="nav-link">Company</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
           <a href="#lead" class="btn-brand-outline text-sm">Request Sample</a>
           <a href="/signup" class="btn-brand text-sm">Get API Key</a>
         </div>
+        <details class="md:hidden">
+          <summary class="list-none cursor-pointer px-3 py-2 rounded border">Menu</summary>
+          <div class="mt-2 bg-white border rounded p-3 flex flex-col gap-2 text-sm">
+            <a href="/products" class="nav-link">Products</a>
+            <a href="/catalog" class="nav-link">Catalog</a>
+            <a href="/solutions" class="nav-link">Solutions</a>
+            <a href="/api" class="nav-link">API</a>
+            <a href="/quality" class="nav-link">Quality</a>
+            <a href="/pricing" class="nav-link">Pricing</a>
+            <a href="/about" class="nav-link">Company</a>
+            <hr/>
+            <a href="#lead" class="btn-brand-outline text-sm text-center">Request Sample</a>
+            <a href="/signup" class="btn-brand text-sm text-center">Get API Key</a>
+          </div>
+        </details>
       </div>
     </header>
 

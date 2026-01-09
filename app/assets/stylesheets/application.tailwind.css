@@ -11,5 +11,7 @@
   .btn-brand { @apply px-4 py-2 rounded bg-brand-600 text-white hover:bg-brand-700; }
   .btn-brand-outline { @apply px-4 py-2 rounded border border-brand-600 text-brand-600 hover:bg-brand-50; }
   .link-brand { @apply text-brand-600 hover:underline; }
+  .nav-link { @apply hover:text-brand-600; }
+  .site-header { @apply bg-white border-b sticky top-0 z-10; }
+  .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
 }
-
