@@ -1,0 +1,60 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: comminnity_development
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      RAILS_ENV: development
+      RACK_ENV: development
+      DATABASE_URL: postgres://postgres:postgres@db:5432/comminnity_development
+      RAILS_LOG_TO_STDOUT: "true"
+      RAILS_SERVE_STATIC_FILES: "true"
+      ROOT_EMAIL: admin@example.com
+      ROOT_PASSWORD: password
+      SMTP_ADDRESS: mailhog
+      SMTP_PORT: 1025
+    depends_on:
+      - db
+      - mailhog
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+    ports:
+      - "3000:3000"
+    command: bash -lc "bundle install && bundle exec rails db:prepare && bundle exec rails s -b 0.0.0.0 -p 3000"
+
+  css:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      RAILS_ENV: development
+    depends_on:
+      - web
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+    command: bash -lc "bundle exec rails tailwindcss:watch"
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  pgdata:
+  bundle:
+

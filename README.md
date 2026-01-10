@@ -51,3 +51,14 @@ Notes
 - Tailwind is integrated via `tailwindcss-rails` with a brand palette under `brand-50..900`. Use classes like `btn-brand`, `btn-brand-outline`, and `link-brand`.
 - No authentication; `/signup` and `/login` are placeholders for lead capture.
 - For purpose limitation/opt-out, edit `/compliance`, `/privacy` as needed.
+
+Docker (local development)
+- Requirements: Docker Desktop
+- Start services (Rails, Postgres, Tailwind watcher, Mailhog):
+  docker compose up --build
+- App: http://localhost:3000
+- DB: postgres://postgres:postgres@localhost:5432/comminnity_development
+- Mailhog UI (captures outgoing emails): http://localhost:8025 (SMTP on 1025)
+- Environment overrides (optional) in compose env:
+  - ROOT_EMAIL/ROOT_PASSWORD to auto-create an admin on boot
+  - SMTP settings already point to Mailhog for development
