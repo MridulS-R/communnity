@@ -12,6 +12,17 @@
   .btn-brand-outline { @apply px-4 py-2 rounded border border-brand-600 text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800; }
   .link-brand { @apply text-brand-600 hover:underline dark:text-brand-400; }
   .nav-link { @apply hover:text-brand-600 dark:hover:text-brand-400; }
-  .site-header { @apply bg-white border-b sticky top-0 z-10 dark:bg-gray-900 dark:border-gray-800; }
+  .site-header { @apply bg-slate-950 border-b sticky top-0 z-10 dark:bg-gray-900 dark:border-gray-800; }
   .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
+
+  /* Pipeline component */
+  .pipeline { @apply relative bg-white dark:bg-gray-900 border dark:border-gray-800 rounded p-6 overflow-hidden; }
+  .pipeline-track { @apply absolute left-8 right-8 top-1/2 -translate-y-1/2 h-1 bg-gray-200 dark:bg-gray-700 rounded; }
+  .pipeline-steps { @apply relative grid grid-cols-6 gap-4 items-center; }
+  .pipeline-step { @apply flex flex-col items-center text-center; }
+  .pipeline-step .dot { @apply h-10 w-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 transition-colors; }
+  .pipeline-step .label { @apply mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300; }
+  .pipeline-step.active .dot { @apply bg-brand-600 text-white border-brand-600; }
+  .pipeline-connector { @apply h-1 bg-gray-200 dark:bg-gray-700 rounded hidden md:block; }
+  .pipeline-connector.active { @apply bg-brand-600; }
 }

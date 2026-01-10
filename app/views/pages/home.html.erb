@@ -73,4 +73,41 @@
 
 <hr class="my-10" />
 
-<%= render partial: "shared/lead_form" %>
+<section id="pipeline" class="mt-10">
+  <h2 class="text-2xl md:text-3xl font-bold mb-6">AI‑Native Data Pipeline</h2>
+  <p class="text-gray-600 dark:text-gray-300 mb-6">Ingest → Normalize → Deduplicate → Verify → Store → Serve</p>
+  <div class="pipeline" data-pipeline>
+    <div class="pipeline-track"></div>
+    <div class="pipeline-steps">
+      <div class="pipeline-step" data-step="1">
+        <div class="dot">1</div>
+        <div class="label">Ingest</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step" data-step="2">
+        <div class="dot">2</div>
+        <div class="label">Normalize</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step" data-step="3">
+        <div class="dot">3</div>
+        <div class="label">Deduplicate</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step" data-step="4">
+        <div class="dot">4</div>
+        <div class="label">Verify</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step" data-step="5">
+        <div class="dot">5</div>
+        <div class="label">Store</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step" data-step="6">
+        <div class="dot">6</div>
+        <div class="label">Serve</div>
+      </div>
+    </div>
+  </div>
+</section>
