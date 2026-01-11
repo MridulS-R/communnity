@@ -15,14 +15,14 @@
   .site-header { @apply bg-slate-950 border-b sticky top-0 z-10 dark:bg-gray-900 dark:border-gray-800; }
   .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
 
-  /* Pipeline component */
+  /* Pipeline component — vertical */
   .pipeline { @apply relative bg-white dark:bg-gray-900 border dark:border-gray-800 rounded p-6 overflow-hidden; }
-  .pipeline-track { @apply absolute left-8 right-8 top-1/2 -translate-y-1/2 h-1 bg-gray-200 dark:bg-gray-700 rounded; }
-  .pipeline-steps { @apply relative grid grid-cols-6 gap-4 items-center; }
-  .pipeline-step { @apply flex flex-col items-center text-center; }
+  .pipeline-track { @apply absolute top-6 bottom-6 left-6 w-1 bg-gray-200 dark:bg-gray-700 rounded; }
+  .pipeline-steps { @apply relative flex flex-col gap-6; }
+  .pipeline-step { @apply flex items-center gap-4; }
   .pipeline-step .dot { @apply h-10 w-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 transition-colors; }
-  .pipeline-step .label { @apply mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300; }
+  .pipeline-step .label { @apply text-sm md:text-base text-gray-800 dark:text-gray-200; }
   .pipeline-step.active .dot { @apply bg-brand-600 text-white border-brand-600; }
-  .pipeline-connector { @apply h-1 bg-gray-200 dark:bg-gray-700 rounded hidden md:block; }
+  .pipeline-connector { @apply ml-5 w-1 h-10 bg-gray-200 dark:bg-gray-700 rounded; }
   .pipeline-connector.active { @apply bg-brand-600; }
 }
