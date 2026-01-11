@@ -4,7 +4,7 @@
 
 @layer base {
   html { -webkit-text-size-adjust: 100%; }
-  body { @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100; }
+  body { @apply text-gray-900 dark:text-gray-100 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900; }
 }
 
 @layer components {
@@ -12,8 +12,9 @@
   .btn-brand-outline { @apply px-4 py-2 rounded border border-brand-600 text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800; }
   .link-brand { @apply text-brand-600 hover:underline dark:text-brand-400; }
   .nav-link { @apply hover:text-brand-600 dark:hover:text-brand-400; }
-  .site-header { @apply bg-slate-950 border-b sticky top-0 z-10 dark:bg-gray-900 dark:border-gray-800; }
+  .site-header { @apply sticky top-0 z-10 border-b shadow-sm bg-gray-900 text-white dark:bg-gray-950 dark:border-gray-800; }
   .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
+  .site-header .nav-link { @apply text-gray-300 hover:text-white; }
 
   /* Pipeline component — vertical */
   .pipeline { @apply relative bg-white dark:bg-gray-900 border dark:border-gray-800 rounded p-6 overflow-hidden; }
