@@ -1,10 +1,15 @@
 require 'csv'
 
 class IngestionsController < ApplicationController
-  before_action :require_admin
+  before_action :require_login
 
   def index
-    @batches = IngestionBatch.order(created_at: :desc).limit(50).includes(:source)
+    scope = IngestionBatch.order(created_at: :desc).includes(:source)
+    if current_user.admin?
+      @batches = scope.limit(50)
+    else
+      @batches = scope.select { |b| b.source&.metadata&.dig("uploaded_by") == current_user.email }[0, 50]
+    end
   end
 
   def new
@@ -17,7 +22,7 @@ class IngestionsController < ApplicationController
       return redirect_to new_ingestion_path, alert: "Please choose a CSV file"
     end
 
-    source_name = params.dig(:upload, :source_name).presence || "CSV upload — #{current_user.email} — #{Time.current.to_s(:db)}"
+    source_name = params.dig(:upload, :source_name).presence || "Listing submission — #{current_user.email}"
     source = Source.create!(name: source_name, kind: :csv_upload, metadata: { uploaded_by: current_user.email })
     batch = IngestionBatch.create!(source: source, status: :running, started_at: Time.current)
 
@@ -75,6 +80,8 @@ class IngestionsController < ApplicationController
 
   def show
     @batch = IngestionBatch.find(params[:id])
+    unless current_user.admin? || @batch.source&.metadata&.dig("uploaded_by") == current_user.email
+      redirect_to ingestions_path, alert: "Not authorized to view this batch"
+    end
   end
 end
-
