@@ -29,17 +29,16 @@
           <a href="/" class="font-semibold text-xl tracking-tight">CNity Org</a>
         </div>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <% if logged_in? %>
-            <a href="<%= ingestions_path %>" class="nav-link">Submit Listings</a>
-          <% end %>
         </nav>
         <div class="hidden md:flex items-center gap-3">
           <% if logged_in? %>
+            <a href="<%= ingestions_path %>" class="nav-link">Submit Listings</a>
             <details class="relative">
               <summary class="list-none cursor-pointer px-3 py-2 border rounded">Account ▾</summary>
               <div class="absolute right-0 mt-2 w-48 bg-white border rounded shadow p-2 text-sm">
                 <div class="px-2 py-1 text-gray-600">Hi, <%= current_user.name %></div>
-                <a class="block px-2 py-1 hover:bg-gray-50" href="/account">My Account</a>
+                <a class="block px-2 py-1 nav-link hover:bg-gray-50" href="<%= ingestions_path %>">Submit Listings</a>
+                <a class="block px-2 py-1 nav-link hover:bg-gray-50" href="/account">My Account</a>
                 <%= button_to "Logout", logout_path, method: :delete, class: "w-full text-left px-2 py-1 hover:bg-gray-50" %>
               </div>
             </details>
@@ -52,8 +51,8 @@
           <summary class="list-none cursor-pointer px-3 py-2 rounded border">Menu</summary>
           <div class="mt-2 bg-white border rounded p-3 flex flex-col gap-2 text-sm">
             <% if logged_in? %>
-              <a href="<%= ingestions_path %>" class="link-brand">Submit Listings</a>
-              <a href="/account" class="link-brand">My Account</a>
+              <a href="<%= ingestions_path %>" class="nav-link">Submit Listings</a>
+              <a href="/account" class="nav-link">My Account</a>
               <div class="text-sm text-gray-600">Hi, <%= current_user.name %></div>
               <%= button_to "Logout", logout_path, method: :delete, class: "btn-brand-outline text-sm" %>
             <% else %>

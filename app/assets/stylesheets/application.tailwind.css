@@ -14,7 +14,7 @@
   .nav-link { @apply hover:text-brand-600 dark:hover:text-brand-400; }
   .site-header { @apply sticky top-0 z-10 border-b shadow-sm bg-brand-800 text-white; }
   .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
-  .site-header .nav-link { @apply text-white/80 hover:text-white; }
+  .site-header .nav-link { @apply text-black hover:text-black; }
 
   /* Pipeline component — vertical */
   .pipeline { @apply relative bg-white dark:bg-gray-900 border dark:border-gray-800 rounded p-6 overflow-hidden; }
