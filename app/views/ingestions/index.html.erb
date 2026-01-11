@@ -1,5 +1,10 @@
-<h1 class="text-2xl font-bold mb-4">Ingestion Batches</h1>
-<p class="mb-4"><a href="<%= new_ingestion_path %>" class="btn-brand">New CSV ingestion</a></p>
+<h1 class="text-2xl font-bold mb-2">Ingestion Batches</h1>
+<div class="flex items-center justify-between mb-4">
+  <a href="<%= new_ingestion_path %>" class="btn-brand">Submit CSV</a>
+  <% unless current_user.admin? %>
+    <div class="text-sm text-gray-700">Total submitted rows: <span class="font-semibold"><%= RawRecord.joins(:source).where("sources.metadata ->> 'uploaded_by' = ?", current_user.email).count %></span></div>
+  <% end %>
+  </div>
 <table class="w-full text-sm">
   <thead>
     <tr class="text-left border-b">
@@ -26,4 +31,3 @@
     <% end %>
   </tbody>
   </table>
-

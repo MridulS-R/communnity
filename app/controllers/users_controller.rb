@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @submitted_count = RawRecord.joins(:source).where("sources.metadata ->> 'uploaded_by' = ?", current_user.email).count
   end
 
   def update

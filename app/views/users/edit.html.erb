@@ -38,11 +38,17 @@
   </div>
 <% end %>
 
+<div class="bg-white border rounded p-6 mt-6">
+  <h2 class="text-xl font-semibold mb-2">Your Listings</h2>
+  <div class="text-sm text-gray-700 mb-3">Total submitted rows: <span class="font-semibold"><%= @submitted_count %></span></div>
+  <a href="<%= new_ingestion_path %>" class="btn-brand">Submit CSV</a>
+  <a href="<%= ingestions_path %>" class="ml-2 link-brand">View your batches</a>
+</div>
+
 <% if current_user.admin? %>
   <div class="bg-white border rounded p-6 mt-6">
     <h2 class="text-xl font-semibold mb-2">Admin tools</h2>
-    <a href="<%= new_ingestion_path %>" class="btn-brand">Ingest CSV</a>
-    <a href="<%= ingestions_path %>" class="ml-2 link-brand">View batches</a>
+    <a href="<%= ingestions_path %>" class="btn-brand">All batches</a>
   </div>
 <% end %>
 
