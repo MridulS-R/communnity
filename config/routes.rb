@@ -51,6 +51,9 @@ Rails.application.routes.draw do
   # Lead capture
   resources :leads, only: [:create]
 
+  # CSV Ingestion (admin)
+  resources :ingestions, only: [:index, :new, :create, :show]
+
   # API v1
   scope module: :api do
     namespace :v1 do

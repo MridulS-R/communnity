@@ -1,0 +1,22 @@
+<h1 class="text-2xl font-bold mb-4">CSV Ingestion</h1>
+<p class="text-gray-600 mb-4">Upload a CSV. Each row will be stored as JSON (payload) so new attributes are preserved.</p>
+<% if alert.present? %>
+  <div class="mb-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded p-3"><%= alert %></div>
+<% end %>
+<%= form_with url: ingestions_path, multipart: true do |f| %>
+  <div class="grid gap-4 max-w-xl">
+    <div>
+      <label class="text-sm">Source name (optional)</label>
+      <input type="text" name="upload[source_name]" class="w-full border rounded px-3 py-2" placeholder="e.g., November partners feed" />
+    </div>
+    <div>
+      <label class="text-sm">CSV file</label>
+      <input type="file" name="upload[file]" accept=".csv,text/csv" required class="w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <button class="btn-brand">Start ingestion</button>
+      <a href="<%= ingestions_path %>" class="ml-2 link-brand">View recent batches</a>
+    </div>
+  </div>
+<% end %>
+

@@ -33,9 +33,17 @@
       <%= f.password_field :password_confirmation, class: "w-full border rounded px-3 py-2" %>
     </div>
   </div>
-<div class="mt-4">
-  <%= f.submit "Save changes", class: "btn-brand" %>
-</div>
+  <div class="mt-4">
+    <%= f.submit "Save changes", class: "btn-brand" %>
+  </div>
+<% end %>
+
+<% if current_user.admin? %>
+  <div class="bg-white border rounded p-6 mt-6">
+    <h2 class="text-xl font-semibold mb-2">Admin tools</h2>
+    <a href="<%= new_ingestion_path %>" class="btn-brand">Ingest CSV</a>
+    <a href="<%= ingestions_path %>" class="ml-2 link-brand">View batches</a>
+  </div>
 <% end %>
 
 <div class="bg-white border rounded p-6 mt-8">

@@ -1,0 +1,29 @@
+<h1 class="text-2xl font-bold mb-4">Ingestion Batches</h1>
+<p class="mb-4"><a href="<%= new_ingestion_path %>" class="btn-brand">New CSV ingestion</a></p>
+<table class="w-full text-sm">
+  <thead>
+    <tr class="text-left border-b">
+      <th class="py-2">Started</th>
+      <th>Source</th>
+      <th>Status</th>
+      <th>Totals</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @batches.each do |b| %>
+      <tr class="border-b">
+        <td class="py-2"><%= b.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+        <td><%= b.source&.name %></td>
+        <td><%= b.status %></td>
+        <td>
+          <%= b.processed_count || 0 %> ok,
+          <%= b.duplicate_count || 0 %> dup,
+          <%= (b.total_count || 0) - (b.processed_count || 0) %> err
+        </td>
+        <td><a class="link-brand" href="<%= ingestion_path(b) %>">View</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
