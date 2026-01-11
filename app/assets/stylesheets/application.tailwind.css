@@ -12,9 +12,29 @@
   .btn-brand-outline { @apply px-4 py-2 rounded border border-brand-600 text-brand-600 hover:bg-brand-50 dark:hover:bg-gray-800; }
   .link-brand { @apply text-brand-600 hover:underline dark:text-brand-400; }
   .nav-link { @apply hover:text-brand-600 dark:hover:text-brand-400; }
-  .site-header { @apply sticky top-0 z-10 border-b shadow-sm bg-brand-800 text-white; }
+  /* Navbar background: Cornflower #82a4e3 */
+  .site-header { @apply sticky top-0 z-10 border-b shadow-sm text-white; background-color: #82a4e3; }
   .site-header-inner { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between; }
-  .site-header .nav-link { @apply text-black hover:text-black; }
+  /* Navbar link colors: set to Dark Blue #151b25 */
+  .site-header .nav-link { color: #151b25; }
+  .site-header .nav-link:hover { color: #151b25; }
+  /* Apply to any non-button links in the header (e.g., brand link) */
+  .site-header a:not(.btn-brand):not(.btn-brand-outline) { color: #151b25; }
+  .site-header a:not(.btn-brand):not(.btn-brand-outline):hover { color: #151b25; }
+  /* Mobile menu: greeting text and logout button text color */
+  .site-header details .text-black { color: #151b25; }
+  .site-header .btn-brand-outline { color: #151b25; }
+
+  /* Footer styling to match navbar */
+  .site-footer { background-color: #82a4e3; }
+  .site-footer { color: #151b25; }
+  /* Footer links (override Tailwind hover utilities) */
+  .site-footer a:not(.btn-brand):not(.btn-brand-outline) { color: #151b25 !important; }
+  .site-footer a:not(.btn-brand):not(.btn-brand-outline):hover { color: #151b25 !important; }
+  /* Footer buttons and borders for contrast */
+  .site-footer .btn-brand { background-color: #151b25 !important; color: #ffffff !important; }
+  .site-footer .btn-brand:hover { background-color: #151b25 !important; }
+  .site-footer a.border { border-color: #151b25 !important; }
 
   /* Pipeline component — vertical */
   .pipeline { @apply relative bg-white dark:bg-gray-900 border dark:border-gray-800 rounded p-6 overflow-hidden; }
